@@ -136,8 +136,8 @@ const cfg = JSON.stringify({ csv: carta.sheetCsvUrl, empty: carta.emptyText });
     display: none;
   }
   .cat {
-    scroll-margin-top: 4.2rem;
-    padding-top: 2.2rem;
+    scroll-margin-top: 4rem;
+    padding-top: 1.6rem;
   }
   .cat[hidden],
   .item[hidden] {
@@ -146,18 +146,21 @@ const cfg = JSON.stringify({ csv: carta.sheetCsvUrl, empty: carta.emptyText });
   .cat-title {
     display: flex;
     align-items: baseline;
-    gap: 0.7rem;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-inline: -1rem;
+    padding: 0.75rem 1rem 0.6rem;
+    background: var(--color-ink);
+    color: var(--color-paper);
     font-family: var(--font-display);
     font-weight: 800;
     text-transform: uppercase;
-    font-size: clamp(2.6rem, 11vw, 3.8rem);
-    line-height: 0.9;
-    padding-bottom: 0.4rem;
-    border-bottom: 2px solid var(--color-ink);
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    line-height: 0.95;
   }
   .cat-n {
     font-size: 1.3rem;
-    color: var(--color-brasa);
+    color: color-mix(in srgb, var(--color-paper) 60%, transparent);
   }
   .item {
     display: grid;
