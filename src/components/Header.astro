@@ -1,0 +1,23 @@
+---
+import { site, waLink } from '../lib/site';
+const { demo } = site;
+---
+
+{
+  demo.enabled && (
+    <p class="bg-ink px-4 py-1.5 text-center text-[0.7rem] font-semibold tracking-[0.14em] text-paper uppercase">
+      {demo.text}
+    </p>
+  )
+}
+<header class="sticky top-0 z-50 border-b border-ink/30 bg-paper">
+  <div class="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-3 md:px-8">
+    <a href="/" class="display text-[1.7rem] leading-none md:text-[2rem]" aria-label={`${site.brand.name}, inicio`}>
+      {site.brand.wordmark}
+    </a>
+    <nav aria-label="Principal" class="hidden items-center gap-8 text-sm font-semibold tracking-wide uppercase md:flex">
+      {site.nav.map((n) => <a href={n.href} class="link">{n.label}</a>)}
+    </nav>
+    <a href={waLink()} class="btn !px-4 !py-2 text-xs md:text-sm" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</header>

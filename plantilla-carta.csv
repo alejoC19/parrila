@@ -1,0 +1,25 @@
+categoria,nombre,descripcion,precio,etiquetas,disponible,orden
+Para empezar,Provoleta,Con orégano y ají molido.,9500,"vegetariano, sin tacc, picante",si,1
+Para empezar,Empanada de carne cortada a cuchillo,Precio por unidad.,2800,,si,2
+Para empezar,Mollejas,"Doradas, con limón.",16500,sin tacc,si,3
+Para empezar,Picada Co,"Fiambres, quesos, chorizo y encurtidos. Para dos.",24000,recomendado,si,4
+Del asador,Asado de asador,Con papas y ensalada.,21000,"recomendado, sin tacc",si,1
+Del asador,Costillar,Cocción lenta.,22500,sin tacc,si,2
+Del asador,Vacío,"Jugoso, a punto.",19500,sin tacc,si,3
+Del asador,Entraña,"Sellada, bien tierna.",20500,sin tacc,si,4
+Del asador,Bife de chorizo,Corte grueso.,21500,sin tacc,si,5
+Del asador,Pollo a la parrilla,"Medio pollo, con limón.",14500,sin tacc,si,6
+Del asador,Chorizo,Al plato o al pan.,6000,,si,7
+Del asador,Morcilla,,5500,,si,8
+Sin carne,Berenjenas grilladas,Con ajo y perejil.,9000,"vegetariano, sin tacc",si,1
+Sin carne,Provoleta con tomate,Queso grillado con tomate y albahaca.,10500,"vegetariano, sin tacc",si,2
+Guarniciones,Papas fritas,,7000,vegetariano,si,1
+Guarniciones,Ensalada mixta,"Lechuga, tomate y cebolla.",6500,"vegetariano, sin tacc",si,2
+Guarniciones,Chimichurri picante,Frasco para la mesa.,2000,"vegetariano, sin tacc, picante",si,3
+Postres,Flan casero,Con dulce de leche y crema.,6500,vegetariano,si,1
+Postres,Vigilante,Queso y dulce de membrillo.,6000,vegetariano,si,2
+Bebidas,Cerveza tirada (pinta),Bien fría.,5500,recomendado,si,1
+Bebidas,Cerveza en botella,,5000,,si,2
+Bebidas,Malbec (copa),,6000,,si,3
+Bebidas,Gaseosa,,3500,,si,4
+Bebidas,Agua,Con o sin gas.,3000,,si,5

@@ -1,0 +1,21 @@
+---
+import { site } from '../lib/site';
+const items = site.marquee;
+---
+
+<div class="overflow-hidden bg-ink py-4 text-paper md:py-5" aria-hidden="true">
+  <div class="marquee">
+    {
+      [0, 1].map(() => (
+        <div class="flex shrink-0 items-center">
+          {items.map((t) => (
+            <span class="display flex items-center text-[clamp(2.2rem,5vw,4.2rem)] whitespace-nowrap">
+              {t}
+              <span class="mx-6 inline-block h-3 w-3 bg-brasa md:mx-10 md:h-4 md:w-4"></span>
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>

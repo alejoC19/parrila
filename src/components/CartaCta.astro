@@ -1,0 +1,34 @@
+---
+import QRCode from 'qrcode';
+import SectionHead from './SectionHead.astro';
+import { site, absUrl } from '../lib/site';
+const { cartaCta } = site;
+const qr = await QRCode.toString(absUrl('/carta'), { type: 'svg', margin: 1, color: { dark: '#14110f', light: '#efe6d2' } });
+---
+
+<section id="carta" class="bg-brasa text-paper" aria-labelledby="carta-title">
+  <div class="mx-auto max-w-[1500px] px-4 py-20 md:px-8 md:py-32">
+    <SectionHead number={cartaCta.number} label={cartaCta.label} dark />
+    <div class="mt-10 grid items-end gap-12 md:mt-16 md:grid-cols-12 md:gap-8">
+      <div class="md:col-span-8">
+        <h2 id="carta-title" class="display text-[clamp(3.4rem,10.5vw,10.5rem)]" data-up>{cartaCta.title}</h2>
+        <p class="mt-8 max-w-[40ch] text-xl leading-snug" data-up>{cartaCta.text}</p>
+        <a href="/carta" class="btn btn-paper mt-8">{cartaCta.button}<span aria-hidden="true">→</span></a>
+      </div>
+      <div class="md:col-span-4">
+        <div class="mx-auto w-full max-w-[260px] border-2 border-paper bg-paper p-3 md:ml-auto" data-up>
+          <div class="aspect-square w-full" role="img" aria-label="Código QR que abre la carta" set:html={qr} />
+          <p class="mt-2 text-center text-[0.7rem] font-bold tracking-[0.18em] text-ink uppercase">Probá escanearlo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  #carta [role='img'] svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>

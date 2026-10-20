@@ -1,0 +1,90 @@
+---
+import Pic from './Pic.astro';
+import { site } from '../lib/site';
+const { hero, location, hours } = site;
+---
+
+<section aria-labelledby="hero-title" data-hours={JSON.stringify(hours)}>
+  <div class="relative">
+  <div class="mx-auto grid max-w-[1500px] md:min-h-[calc(100svh-7rem)] md:grid-cols-12">
+    <div class="relative z-10 order-2 flex flex-col justify-between px-4 pt-8 pb-10 md:order-1 md:col-span-7 md:px-8 md:pt-14 md:pb-8">
+      <p class="fade-in mb-6 flex items-center gap-3 text-xs font-bold tracking-[0.18em] uppercase">
+        <span class="inline-block h-px w-10 bg-ink"></span>{hero.kicker}
+      </p>
+
+      <h1
+        id="hero-title"
+        class="display text-[clamp(4.4rem,17.5vw,8.4rem)] md:text-[clamp(5rem,11.2vw,12.4rem)]"
+      >
+        {
+          hero.lines.map((line, i) => (
+            <span class="line" style={`--i:${i}`}>
+              <span class={i === hero.accentLine ? 'text-brasa' : ''}>{line}</span>
+            </span>
+          ))
+        }
+      </h1>
+
+      <div class="fade-in mt-8 grid gap-6 md:mt-12 lg:grid-cols-[1fr_auto] lg:items-end">
+        <p class="max-w-[34ch] text-lg leading-snug font-medium md:text-xl">{hero.sub}</p>
+        <div class="flex flex-wrap gap-3">
+          <a href={hero.cta.href} class="btn">{hero.cta.label}<span aria-hidden="true">→</span></a>
+          <a href={hero.ctaSecondary.href} class="btn btn-ghost">{hero.ctaSecondary.label}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-1 md:order-2 md:col-span-5">
+      <div class="frame relative aspect-[4/3] md:absolute md:inset-y-0 md:right-0 md:aspect-auto md:h-full md:w-[calc(41.66%-0px)]">
+        <Pic
+          name={hero.image}
+          alt={hero.imageAlt}
+          eager
+          sizes="(min-width: 768px) 42vw, 100vw"
+          widths={[640, 960, 1280, 1800]}
+          position="62% center"
+        />
+        <div
+          class="absolute bottom-0 left-0 border-t-2 border-r-2 border-ink bg-paper px-5 py-4"
+          aria-label={`${hero.reviewsBadge.value} en Google Maps, ${hero.reviewsBadge.detail}`}
+        >
+          <p class="display text-6xl text-brasa md:text-7xl">{hero.reviewsBadge.value}</p>
+          <p class="text-xs font-bold tracking-wider uppercase">{hero.reviewsBadge.label}</p>
+          <p class="text-xs text-mute">{hero.reviewsBadge.detail}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="rule mx-auto max-w-[1500px]">
+    <dl class="grid divide-y divide-ink/30 text-sm md:grid-cols-3 md:divide-x md:divide-y-0">
+      <div class="px-4 py-4 md:px-8">
+        <dt class="text-[0.7rem] font-bold tracking-[0.18em] text-mute uppercase">Dónde</dt>
+        <dd class="font-semibold">{location.street}, {location.city}</dd>
+      </div>
+      <div class="px-4 py-4 md:px-8">
+        <dt class="text-[0.7rem] font-bold tracking-[0.18em] text-mute uppercase">Hoy</dt>
+        <dd class="font-semibold" data-open-status aria-live="polite">Mirá los horarios abajo</dd>
+      </div>
+      <div class="px-4 py-4 md:px-8">
+        <dt class="text-[0.7rem] font-bold tracking-[0.18em] text-mute uppercase">Pedí desde la mesa</dt>
+        <dd class="font-semibold"><a class="link" href="/carta">Carta digital →</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<script>
+  import { openStatus } from '../lib/status';
+  const root = document.querySelector<HTMLElement>('[data-hours]');
+  const out = document.querySelector<HTMLElement>('[data-open-status]');
+  if (root && out) {
+    try {
+      const h = JSON.parse(root.dataset.hours!);
+      const s = openStatus(h.schedule, h.timezone);
+      out.textContent = s.text;
+      if (s.open) out.classList.add('text-brasa');
+    } catch {}
+  }
+</script>

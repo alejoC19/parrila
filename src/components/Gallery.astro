@@ -1,0 +1,50 @@
+---
+import Pic from './Pic.astro';
+import SectionHead from './SectionHead.astro';
+import { site } from '../lib/site';
+import { img } from '../lib/images';
+const { gallery } = site;
+
+const items = gallery.items.map((g) => {
+  const m = img(g.image);
+  return { ...g, ratio: `${m.width} / ${m.height}`, h: m.height / m.width };
+});
+
+// Reparte las fotos en columnas de alto parecido (cada una va a la columna más baja)
+function columns(n: number) {
+  const cols = Array.from({ length: n }, () => ({ h: 0, items: [] as typeof items }));
+  for (const it of items) {
+    const c = cols.reduce((a, b) => (b.h < a.h ? b : a));
+    c.items.push(it);
+    c.h += it.h;
+  }
+  return cols.map((c) => c.items);
+}
+const layouts = [
+  { cls: 'grid grid-cols-2 gap-3 md:hidden', cols: columns(2), sizes: '50vw' },
+  { cls: 'hidden gap-5 md:grid md:grid-cols-3', cols: columns(3), sizes: '33vw' },
+];
+---
+
+<section id="galeria" class="mx-auto max-w-[1500px] px-4 py-20 md:px-8 md:py-32" aria-labelledby="galeria-title">
+  <SectionHead number={gallery.number} label={gallery.label} />
+  <h2 id="galeria-title" class="display mt-10 text-[clamp(2.8rem,7.4vw,7rem)] md:mt-14" data-up>{gallery.title}</h2>
+
+  {
+    layouts.map((l) => (
+      <div class:list={['mt-10 md:mt-16', l.cls]}>
+        {l.cols.map((col, ci) => (
+          <div class:list={['flex flex-col gap-3 md:gap-5', ci === 1 && 'md:mt-16']}>
+            {col.map((g) => (
+              <figure>
+                <div class="frame" style={`aspect-ratio:${g.ratio}`} data-reveal>
+                  <Pic name={g.image} alt={g.alt} sizes={`(min-width: 768px) ${l.sizes}, ${l.sizes}`} widths={[400, 700, 1000]} />
+                </div>
+              </figure>
+            ))}
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</section>

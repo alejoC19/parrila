@@ -1,0 +1,60 @@
+---
+import '@fontsource-variable/big-shoulders-display';
+import '@fontsource-variable/public-sans';
+import '../styles/global.css';
+import displayFont from '@fontsource-variable/big-shoulders-display/files/big-shoulders-display-latin-wght-normal.woff2?url';
+import sansFont from '@fontsource-variable/public-sans/files/public-sans-latin-wght-normal.woff2?url';
+import { getImage } from 'astro:assets';
+import { img } from '../lib/images';
+import { site, absUrl } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  jsonLd?: object[];
+  bodyClass?: string;
+}
+const { title = site.meta.title, description = site.meta.description, path = '/', jsonLd = [], bodyClass = '' } = Astro.props;
+
+const og = await getImage({ src: img(site.meta.ogImage), width: 1200, height: 630, format: 'jpg', quality: 80 });
+const ogUrl = absUrl(og.src);
+const canonical = absUrl(path);
+---
+
+<!doctype html>
+<html lang={site.meta.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content={site.meta.themeColor} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" as="font" type="font/woff2" href={displayFont} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={sansFont} crossorigin />
+
+    <meta property="og:type" content="restaurant.restaurant" />
+    <meta property="og:site_name" content={site.brand.name} />
+    <meta property="og:locale" content={site.meta.locale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogUrl} />
+
+    {jsonLd.map((o) => <script type="application/ld+json" set:html={JSON.stringify(o)} />)}
+    <slot name="head" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('rm');
+    </script>
+  </head>
+  <body class={bodyClass}>
+    <slot />
+  </body>
+</html>

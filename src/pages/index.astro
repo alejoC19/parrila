@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Dishes from '../components/Dishes.astro';
+import Marquee from '../components/Marquee.astro';
+import CartaCta from '../components/CartaCta.astro';
+import Gallery from '../components/Gallery.astro';
+import Reservas from '../components/Reservas.astro';
+import Ubicacion from '../components/Ubicacion.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { getImage } from 'astro:assets';
+import { img } from '../lib/images';
+import { site, absUrl, restaurantJsonLd } from '../lib/site';
+
+const og = await getImage({ src: img(site.meta.ogImage), width: 1200, height: 630, format: 'jpg', quality: 80 });
+---
+
+<Base jsonLd={[restaurantJsonLd(absUrl(og.src))]}>
+  <a href="#historia" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[70] focus:bg-ink focus:p-3 focus:text-paper">Saltar al contenido</a>
+  <Header />
+  <main>
+    <Hero />
+    <Marquee />
+    <About />
+    <Dishes />
+    <CartaCta />
+    <Gallery />
+    <Reservas />
+    <Ubicacion />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+
+  <script>
+    // GSAP, ScrollTrigger y Lenis cargan después del primer render para no frenar el LCP
+    const start = () =>
+      import('../lib/motion')
+        .then((m) => m.initMotion())
+        .catch(() => document.documentElement.classList.remove('js'));
+    if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 1500 });
+    else setTimeout(start, 400);
+  </script>
+</Base>

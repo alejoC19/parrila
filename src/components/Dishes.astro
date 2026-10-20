@@ -1,0 +1,71 @@
+---
+import Pic from './Pic.astro';
+import SectionHead from './SectionHead.astro';
+import { site } from '../lib/site';
+import { formatPrice } from '../lib/menu';
+const { dishes, demo } = site;
+---
+
+<section id="platos" class="bg-paper-2" aria-labelledby="platos-title">
+  <div class="mx-auto max-w-[1500px] px-4 py-20 md:px-8 md:py-32">
+    <SectionHead number={dishes.number} label={dishes.label} />
+    <h2 id="platos-title" class="display mt-10 text-[clamp(2.8rem,7.4vw,7rem)] md:mt-14" data-up>{dishes.title}</h2>
+
+    <div class="mt-10 grid gap-10 md:mt-16 md:grid-cols-12 md:gap-8" data-dishes>
+      <div class="hidden md:col-span-5 md:block">
+        <div class="frame sticky top-24 aspect-[4/5]">
+          {
+            dishes.items.map((d, i) => (
+              <div class="absolute inset-0 transition-opacity duration-300" data-preview={i} style={`opacity:${i === 0 ? 1 : 0}`}>
+                <Pic name={d.image} alt={d.alt} sizes="40vw" widths={[480, 800, 1100]} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <ol class="md:col-span-7">
+        {
+          dishes.items.map((d, i) => (
+            <li class="dish rule grid grid-cols-[2.2rem_1fr_auto] items-baseline gap-x-3 py-5 md:grid-cols-[3rem_1fr_auto] md:py-6" data-dish={i} tabindex="0" aria-current={i === 0 ? 'true' : undefined}>
+              <span class="display text-2xl text-brasa md:text-3xl">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="display text-[clamp(2rem,4.6vw,3.6rem)]">
+                  {d.name}
+                  {d.tag && <span class="ml-2 inline-block -translate-y-1.5 border border-current px-1.5 py-0.5 align-middle font-sans text-[0.6rem] leading-none font-bold tracking-widest whitespace-nowrap">{d.tag}</span>}
+                </h3>
+                <p class="mt-1 text-base opacity-80">{d.desc}</p>
+              </div>
+              <p class="display text-3xl md:text-4xl">{formatPrice(d.price)}</p>
+              <div class="frame col-span-full mt-4 aspect-[16/10] md:hidden">
+                <Pic name={d.image} alt={d.alt} sizes="100vw" widths={[480, 800]} />
+              </div>
+            </li>
+          ))
+        }
+        <li class="rule"></li>
+      </ol>
+    </div>
+
+    <div class="mt-10 flex flex-wrap items-center justify-between gap-4">
+      <a href="/carta" class="btn">Ver toda la carta<span aria-hidden="true">→</span></a>
+      {demo.enabled && <p class="text-sm text-mute">{dishes.demoNote}</p>}
+    </div>
+  </div>
+</section>
+
+<script>
+  const wrap = document.querySelector('[data-dishes]');
+  if (wrap) {
+    const rows = wrap.querySelectorAll<HTMLElement>('[data-dish]');
+    const previews = wrap.querySelectorAll<HTMLElement>('[data-preview]');
+    const show = (n: string) => {
+      previews.forEach((p) => (p.style.opacity = p.dataset.preview === n ? '1' : '0'));
+      rows.forEach((r) => (r.dataset.dish === n ? r.setAttribute('aria-current', 'true') : r.removeAttribute('aria-current')));
+    };
+    rows.forEach((r) => {
+      r.addEventListener('mouseenter', () => show(r.dataset.dish!));
+      r.addEventListener('focus', () => show(r.dataset.dish!));
+    });
+  }
+</script>

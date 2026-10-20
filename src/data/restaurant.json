@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "siteUrl": "https://parrilla-co.vercel.app",
+    "lang": "es-AR",
+    "locale": "es_AR",
+    "title": "Parrilla Co · Asado de asador en Mar del Plata",
+    "description": "Asado de asador y cerveza fría en Olavarría 3044, Mar del Plata. Mirá la carta, los horarios y reservá por WhatsApp.",
+    "ogImage": "hero-asador",
+    "themeColor": "#EFE6D2"
+  },
+  "demo": {
+    "enabled": true,
+    "text": "Demo de diseño · platos, precios y fotos de ejemplo, a reemplazar con los reales"
+  },
+  "brand": {
+    "name": "Parrilla Co",
+    "wordmark": "PARRILLA CO.",
+    "cuisine": ["Parrilla", "Asado de asador", "Barbacoa"],
+    "priceRange": "$$"
+  },
+  "nav": [
+    { "label": "Platos", "href": "/#platos" },
+    { "label": "Carta", "href": "/carta" },
+    { "label": "Dónde", "href": "/#donde" }
+  ],
+  "contact": {
+    "phone": "0223 511-9361",
+    "phoneHref": "+542235119361",
+    "whatsapp": "5492235119361",
+    "whatsappMessage": "Hola Parrilla Co! Quiero reservar una mesa.\n\nDía:\nHora:\nCuántos somos:\nNombre:",
+    "instagram": "https://www.instagram.com/parrilla_co/",
+    "instagramHandle": "@parrilla_co"
+  },
+  "location": {
+    "street": "Olavarría 3044",
+    "city": "Mar del Plata",
+    "region": "Buenos Aires",
+    "postalCode": "B7600",
+    "country": "AR",
+    "lat": -38.0163599,
+    "lng": -57.5435144,
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=-38.0163599,-57.5435144"
+  },
+  "hours": {
+    "timezone": "America/Argentina/Buenos_Aires",
+    "note": "Horarios según Google Maps. Confirmar con el local.",
+    "schedule": [
+      { "label": "Lunes a viernes", "days": [1, 2, 3, 4, 5], "slots": [["20:15", "24:00"]] },
+      { "label": "Sábado y domingo", "days": [6, 0], "slots": [["12:30", "15:30"], ["20:15", "24:00"]] }
+    ]
+  },
+  "hero": {
+    "kicker": "Asador · Mar del Plata",
+    "lines": ["Asado", "de asador.", "Cerveza", "fría."],
+    "accentLine": 3,
+    "sub": "Brasa, papas y ensalada. Sentate y pedí.",
+    "image": "hero-asador",
+    "imageAlt": "Cortes de carne dorándose sobre la parrilla, con llamas detrás",
+    "reviewsBadge": { "value": "4,7", "label": "en Google Maps", "detail": "+2.800 reseñas" },
+    "cta": { "label": "Ver la carta", "href": "/carta" },
+    "ctaSecondary": { "label": "Reservar", "href": "#reservas" }
+  },
+  "about": {
+    "number": "01",
+    "label": "Quiénes somos",
+    "statement": "Fuego, sal y paciencia. Lo demás es cerveza fría y buena mesa.",
+    "paragraphs": [
+      "Parrilla Co es un asador de Mar del Plata donde el protagonista es el asado de asador: se hace despacio, a la vista y con la brasa siempre a punto.",
+      "Llega con papas y ensalada, la cerveza sale bien fría y en la mesa te atienden rápido. Sin vueltas."
+    ],
+    "pending": "[PENDIENTE] Año de apertura, quién está en la parrilla y la historia real del lugar.",
+    "image": "historia-corte",
+    "imageAlt": "Corte de carne en rodajas sobre una tabla de madera"
+  },
+  "stats": [
+    { "value": "4,7", "label": "de nota en Google Maps" },
+    { "value": "+2.800", "label": "reseñas de comensales" },
+    { "value": "2 turnos", "label": "mediodía y noche los fines de semana" }
+  ],
+  "dishes": {
+    "number": "02",
+    "label": "Del asador",
+    "title": "Lo que sale de la brasa",
+    "items": [
+      { "name": "Asado de asador", "desc": "A la estaca, con papas y ensalada.", "price": 21000, "image": "plato-corte-tabla", "alt": "Asado cortado sobre tabla", "tag": "Recomendado" },
+      { "name": "Costillar", "desc": "Cocción lenta, bien tierno.", "price": 22500, "image": "plato-costillar", "alt": "Costillar con tomate y papas" },
+      { "name": "Entraña", "desc": "Sellada y jugosa.", "price": 20500, "image": "plato-entrana", "alt": "Entraña sellada sobre ensalada" },
+      { "name": "Chorizo", "desc": "Al pan o al plato.", "price": 6000, "image": "plato-chorizo", "alt": "Chorizos sobre la parrilla" },
+      { "name": "Picada Co", "desc": "Para compartir y arrancar.", "price": 24000, "image": "plato-picada", "alt": "Picada con carnes y salsas" }
+    ],
+    "demoNote": "Platos y precios de ejemplo."
+  },
+  "marquee": ["Asado de asador", "Cerveza fría", "Papas y ensalada", "Mesa para todos", "Brasa viva", "Olavarría 3044"],
+  "cartaCta": {
+    "number": "03",
+    "label": "La carta",
+    "title": "La carta, en tu celu.",
+    "text": "Escaneá el QR en la mesa o tocá el botón. Sin bajar nada, se abre al toque.",
+    "button": "Abrir la carta"
+  },
+  "gallery": {
+    "number": "04",
+    "label": "Galería",
+    "title": "Brasa viva",
+    "items": [
+      { "image": "galeria-fuego", "alt": "Parrilla encendida con llamas altas" },
+      { "image": "galeria-pinza", "alt": "Pinzas sobre la parrilla con carne y llamas" },
+      { "image": "galeria-brasa", "alt": "Carne a la brasa con fuego vivo" },
+      { "image": "galeria-carbon", "alt": "Carbón ardiendo sobre la parrilla" },
+      { "image": "galeria-lena", "alt": "Leña encendida bajo la parrilla" },
+      { "image": "galeria-asador", "alt": "Costillar en el asador frente al fuego" },
+      { "image": "cerveza-tirada", "alt": "Cerveza tirada en el mostrador" },
+      { "image": "cerveza-vaso", "alt": "Vaso de cerveza fría con gotas" }
+    ]
+  },
+  "reservas": {
+    "number": "05",
+    "label": "Reservas",
+    "title": "Reservá por WhatsApp.",
+    "text": "Decinos día, hora y cuántos son. Te respondemos por ahí.",
+    "button": "Escribir al WhatsApp"
+  },
+  "ubicacion": {
+    "number": "06",
+    "label": "Dónde y cuándo",
+    "title": "Pasá por la brasa.",
+    "directions": "Cómo llegar"
+  },
+  "footer": {
+    "tagline": "Asado de asador. Cerveza fría.",
+    "credit": "Sitio de demostración"
+  },
+  "carta": {
+    "title": "La carta",
+    "intro": "Tocá una categoría o buscá un plato.",
+    "searchPlaceholder": "Buscar: vacío, provoleta, cerveza…",
+    "sheetCsvUrl": "",
+    "fallbackUpdated": "2026-10-20",
+    "emptyText": "No encontramos nada con esa búsqueda.",
+    "footnote": "Consultá por alérgenos con el mozo.",
+    "tags": [
+      { "id": "recomendado", "label": "Recomendado" },
+      { "id": "vegetariano", "label": "Vegetariano" },
+      { "id": "sin-tacc", "label": "Sin TACC" },
+      { "id": "picante", "label": "Picante" }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+---
+import SectionHead from './SectionHead.astro';
+import { site, waLink } from '../lib/site';
+const { reservas, contact } = site;
+---
+
+<section id="reservas" class="bg-ink text-paper" aria-labelledby="reservas-title">
+  <div class="mx-auto max-w-[1500px] px-4 py-20 md:px-8 md:py-32">
+    <SectionHead number={reservas.number} label={reservas.label} dark />
+    <div class="mt-10 grid items-end gap-10 md:mt-16 md:grid-cols-12 md:gap-8">
+      <h2 id="reservas-title" class="display text-[clamp(3.2rem,10vw,10rem)] md:col-span-8" data-up>
+        {reservas.title}
+      </h2>
+      <div class="md:col-span-4" data-up>
+        <p class="max-w-[32ch] text-xl leading-snug">{reservas.text}</p>
+        <a href={waLink()} class="btn btn-paper mt-8" target="_blank" rel="noopener">
+          {reservas.button}<span aria-hidden="true">↗</span>
+        </a>
+        <p class="mt-4 text-sm opacity-70">O llamá al <a class="link" href={`tel:${contact.phoneHref}`}>{contact.phone}</a></p>
+      </div>
+    </div>
+  </div>
+</section>

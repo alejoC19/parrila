@@ -1,0 +1,34 @@
+{
+  "updated": "2026-10-20",
+  "items": [
+    { "categoria": "Para empezar", "nombre": "Provoleta", "descripcion": "Con orégano y ají molido.", "precio": 9500, "etiquetas": "vegetariano, sin tacc, picante", "disponible": "si", "orden": 1 },
+    { "categoria": "Para empezar", "nombre": "Empanada de carne cortada a cuchillo", "descripcion": "Precio por unidad.", "precio": 2800, "etiquetas": "", "disponible": "si", "orden": 2 },
+    { "categoria": "Para empezar", "nombre": "Mollejas", "descripcion": "Doradas, con limón.", "precio": 16500, "etiquetas": "sin tacc", "disponible": "si", "orden": 3 },
+    { "categoria": "Para empezar", "nombre": "Picada Co", "descripcion": "Fiambres, quesos, chorizo y encurtidos. Para dos.", "precio": 24000, "etiquetas": "recomendado", "disponible": "si", "orden": 4 },
+
+    { "categoria": "Del asador", "nombre": "Asado de asador", "descripcion": "Con papas y ensalada.", "precio": 21000, "etiquetas": "recomendado, sin tacc", "disponible": "si", "orden": 1 },
+    { "categoria": "Del asador", "nombre": "Costillar", "descripcion": "Cocción lenta.", "precio": 22500, "etiquetas": "sin tacc", "disponible": "si", "orden": 2 },
+    { "categoria": "Del asador", "nombre": "Vacío", "descripcion": "Jugoso, a punto.", "precio": 19500, "etiquetas": "sin tacc", "disponible": "si", "orden": 3 },
+    { "categoria": "Del asador", "nombre": "Entraña", "descripcion": "Sellada, bien tierna.", "precio": 20500, "etiquetas": "sin tacc", "disponible": "si", "orden": 4 },
+    { "categoria": "Del asador", "nombre": "Bife de chorizo", "descripcion": "Corte grueso.", "precio": 21500, "etiquetas": "sin tacc", "disponible": "si", "orden": 5 },
+    { "categoria": "Del asador", "nombre": "Pollo a la parrilla", "descripcion": "Medio pollo, con limón.", "precio": 14500, "etiquetas": "sin tacc", "disponible": "si", "orden": 6 },
+    { "categoria": "Del asador", "nombre": "Chorizo", "descripcion": "Al plato o al pan.", "precio": 6000, "etiquetas": "", "disponible": "si", "orden": 7 },
+    { "categoria": "Del asador", "nombre": "Morcilla", "descripcion": "", "precio": 5500, "etiquetas": "", "disponible": "si", "orden": 8 },
+
+    { "categoria": "Sin carne", "nombre": "Berenjenas grilladas", "descripcion": "Con ajo y perejil.", "precio": 9000, "etiquetas": "vegetariano, sin tacc", "disponible": "si", "orden": 1 },
+    { "categoria": "Sin carne", "nombre": "Provoleta con tomate", "descripcion": "Queso grillado con tomate y albahaca.", "precio": 10500, "etiquetas": "vegetariano, sin tacc", "disponible": "si", "orden": 2 },
+
+    { "categoria": "Guarniciones", "nombre": "Papas fritas", "descripcion": "", "precio": 7000, "etiquetas": "vegetariano", "disponible": "si", "orden": 1 },
+    { "categoria": "Guarniciones", "nombre": "Ensalada mixta", "descripcion": "Lechuga, tomate y cebolla.", "precio": 6500, "etiquetas": "vegetariano, sin tacc", "disponible": "si", "orden": 2 },
+    { "categoria": "Guarniciones", "nombre": "Chimichurri picante", "descripcion": "Frasco para la mesa.", "precio": 2000, "etiquetas": "vegetariano, sin tacc, picante", "disponible": "si", "orden": 3 },
+
+    { "categoria": "Postres", "nombre": "Flan casero", "descripcion": "Con dulce de leche y crema.", "precio": 6500, "etiquetas": "vegetariano", "disponible": "si", "orden": 1 },
+    { "categoria": "Postres", "nombre": "Vigilante", "descripcion": "Queso y dulce de membrillo.", "precio": 6000, "etiquetas": "vegetariano", "disponible": "si", "orden": 2 },
+
+    { "categoria": "Bebidas", "nombre": "Cerveza tirada (pinta)", "descripcion": "Bien fría.", "precio": 5500, "etiquetas": "recomendado", "disponible": "si", "orden": 1 },
+    { "categoria": "Bebidas", "nombre": "Cerveza en botella", "descripcion": "", "precio": 5000, "etiquetas": "", "disponible": "si", "orden": 2 },
+    { "categoria": "Bebidas", "nombre": "Malbec (copa)", "descripcion": "", "precio": 6000, "etiquetas": "", "disponible": "si", "orden": 3 },
+    { "categoria": "Bebidas", "nombre": "Gaseosa", "descripcion": "", "precio": 3500, "etiquetas": "", "disponible": "si", "orden": 4 },
+    { "categoria": "Bebidas", "nombre": "Agua", "descripcion": "Con o sin gas.", "precio": 3000, "etiquetas": "", "disponible": "si", "orden": 5 }
+  ]
+}
