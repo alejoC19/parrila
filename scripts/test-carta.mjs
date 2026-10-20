@@ -41,6 +41,10 @@ await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeig
 await page.waitForTimeout(700);
 check('al scrollear a Bebidas se marca esa pestaña', (await page.locator('.tab[aria-current="true"]').getAttribute('data-tab')) === 'bebidas');
 
+await page.evaluate(() => window.scrollTo(0, 0));
+await page.waitForTimeout(700);
+check('al volver arriba se marca la primera pestaña', (await page.locator('.tab[aria-current="true"]').getAttribute('data-tab')) === (await page.locator('.tab').first().getAttribute('data-tab')));
+
 // Planilla simulada: se cambia un precio, se agrega un plato y se oculta otro. Después, el fallo de red.
 const csv = [
   'categoria,nombre,descripcion,precio,etiquetas,disponible,orden',

@@ -75,11 +75,10 @@ function render(csv: string): boolean {
 addEventListener(
   'scroll',
   () => {
-    if (atBottom()) {
-      const cats = menuEl.querySelectorAll<HTMLElement>('.cat:not([hidden])');
-      const last = cats[cats.length - 1];
-      if (last) setCurrent(last.dataset.cat!);
-    }
+    const cats = menuEl.querySelectorAll<HTMLElement>('.cat:not([hidden])');
+    if (!cats.length) return;
+    if (atBottom()) setCurrent(cats[cats.length - 1].dataset.cat!);
+    else if (scrollY < cats[0].offsetTop - 160) setCurrent(cats[0].dataset.cat!);
   },
   { passive: true },
 );
